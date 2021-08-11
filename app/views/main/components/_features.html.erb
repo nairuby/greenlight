@@ -16,26 +16,41 @@
 
 <div class="container mt-8 mb-6 text-center">
 
-  <h2 class="mb-6"><%= t("greenlight") %> <%= t("features.title") %></h2>
+  <h2 class="mb-6">African Ruby Community Family Sponsors</h2>
 
   <div class="row feature-stamp">
     <div class="col-lg-3 col-md-6">
-      <div class="feature-item">
-        <div class="stamp bg-primary"><i class="fas fa-chalkboard-teacher fa-2x"></i></div>
-        <h4 class="mt-4"><%= t("features.rooms") %></h4>
-      </div>
+      <%= link_to "https://kwara.com" %>
+        <%= image_tag("kwara.png", alt: "Kwara Logo") %>
+      <% end %>
+      <h4 class="mt-4">Kwara</h4>
     </div>
     <div class="col-lg-3 col-md-6">
-      <span class="stamp bg-primary"><i class="fas fa-film fa-2x"></i></span>
-      <h4 class="mt-4"><%= t("features.recordings") %></h4>
+      <%= link_to "https://www.shopify.com" do %>
+        <%= image_tag("shopify.png", alt: "Shopify Logo") %>
+      <% end %>
     </div>
     <div class="col-lg-3 col-md-6">
-      <span class="stamp bg-primary"><i class="fas fa-pencil-alt fa-2x"></i></span>
-      <h4 class="mt-4"><%= t("features.designs") %></h4>
+      <%= link_to "https://www.turing.com" do %>
+        <%= image_tag("turing.png", alt: "Turing Logo") %>
+      <% end %>
+    </div>
+   </div>
+  </div>
+
+  <h3 class="mb-6">Supporting Sponsors</h2>
+
+  <div class="row feature-stamp">
+    <div class="col-lg-3 col-md-6">
+      <%= link_to "https://www.cloudafrica.net" %>
+        <%= image_tag("cloudafrica.png", alt: "CloudAfrica Logo") %>
+      <% end %>
     </div>
     <div class="col-lg-3 col-md-6">
-      <span class="stamp bg-primary"><i class="fas fa-door-open fa-2x"></i></span>
-      <h4 class="mt-4"><%= t("features.authentication") %></h4>
+      <%= link_to "https://nairuby.org" %>
+        <%= image_tag("bantamik.png", alt: "BantaMik Logo") %>
+      <% end %> 
     </div>
   </div>
+  
 </div>
