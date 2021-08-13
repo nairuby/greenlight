@@ -26,6 +26,30 @@ Greenlight is designed to work on a [BigBlueButton 2.0](https://github.com/bigbl
 
 For information on installing Greenlight, checkout our [Installing Greenlight on a BigBlueButton Server](http://docs.bigbluebutton.org/greenlight/gl-install.html#installing-on-a-bigbluebutton-server) documentation.
 
+### Steps for installing BigBlueButton and installing this fork
+
+These steps have been tested on BigBlueButton 2.3
+
+````bash
+    sudo apt-get install -y language-pack-en
+    sudo update-locale LANG=en_US.UTF-8
+    wget -qO- https://ubuntu.bigbluebutton.org/bbb-install.sh | bash -s -- -v bionic-23 -s bbb.nairuby.org -e benson_muite@emailplus.org -w -g
+    cd greenlight/
+    docker-compose down
+    cd ..
+    mv greenlight/ greenlight-old
+    git clone https://github.com/nairuby/greenlight
+    cp greenlight-old/.env greenlight
+    rm -rf greenlight/db/
+    cp -r greenlight-old/db/ greenlight
+    cd greenlight
+    ./scripts/image_build.sh bigbluebutton/nairuby release-v2
+    docker-compose up -d
+    cd ..
+    docker exec greenlight-v2 bundle exec rake user:create["Admin","support@email.admin","AdminPassword","admin"]
+    bbb-conf --restart
+```
+
 ## Source Code & Contributing
 
 Greenlight is built using Ruby on Rails. Many developers already know Rails well, and we wanted to create both a full front-end to BigBlueButton but also a reference implementation of how to fully leverage the [BigBlueButton API](http://docs.bigbluebutton.org/dev/api.html).
